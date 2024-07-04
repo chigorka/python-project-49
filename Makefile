@@ -1,9 +1,6 @@
 install:
 	poetry install
 
-brain-games:
-	poetry run brain-games
-
 build:
 	poetry build
 
@@ -19,5 +16,11 @@ package-reinstall:
 lint:
 	poetry run flake8 brain_games
 
+brain-calc:
+	poetry run brain-calc
+
+brain-games:
+	poetry run brain-games
+
 brain-even:
-	 poetry run brain-even
+	poetry run brain-even
