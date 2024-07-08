@@ -24,3 +24,6 @@ brain-games:
 
 brain-even:
 	poetry run brain-even
+
+brain-gcd:
+	poetry run brain-gcd
