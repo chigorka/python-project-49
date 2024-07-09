@@ -8,20 +8,22 @@ import prompt
 
 def main():
     name = welcome_user()
-    print('Find the greatest common divisor of given numbers.')
+    print('What number is missing in the progression?')
     number_of_question = 3
     while number_of_question > 0:
-        first_numeric = random.randint(1, 100)
-        second_numeric = random.randint(1, 100)
-        print(f'Question: {first_numeric} {second_numeric}')
+        seria = []
+        skip_index = random.randint(0, 9)
+        current_number = random.randint(1, 50)
+        delta = random.randint(1, 10)
+        for _ in range(10):
+            seria.append(str(current_number))
+            current_number += delta
+        correct_answer = seria[skip_index]
+        seria[skip_index] = '..'
+        progression = ' '.join(seria)
+        print(f'Question: {progression}')
         user_answer = prompt.integer('Your answer: ')
-        while first_numeric != 0 and second_numeric != 0:
-            if first_numeric > second_numeric:
-                first_numeric = first_numeric % second_numeric
-            else:
-                second_numeric = second_numeric % first_numeric
-        correct_answer = first_numeric + second_numeric
-        if user_answer != correct_answer:
+        if str(user_answer) != correct_answer:
             print(f'{user_answer} is wrong answer ;(. Correct answer was {correct_answer}.')
             print(f"Let's try again, {name}!")
             break
