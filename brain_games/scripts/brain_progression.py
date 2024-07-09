@@ -22,7 +22,7 @@ def main():
         seria[skip_index] = '..'
         progression = ' '.join(seria)
         print(f'Question: {progression}')
-        user_answer = prompt.integer('Your answer: ')
+        user_answer = prompt.string('Your answer: ')
         if str(user_answer) != correct_answer:
             print(f'{user_answer} is wrong answer ;(. Correct answer was {correct_answer}.')
             print(f"Let's try again, {name}!")

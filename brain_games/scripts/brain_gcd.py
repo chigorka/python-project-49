@@ -14,13 +14,13 @@ def main():
         first_numeric = random.randint(1, 100)
         second_numeric = random.randint(1, 100)
         print(f'Question: {first_numeric} {second_numeric}')
-        user_answer = prompt.integer('Your answer: ')
+        user_answer = prompt.string('Your answer: ')
         while first_numeric != 0 and second_numeric != 0:
             if first_numeric > second_numeric:
                 first_numeric = first_numeric % second_numeric
             else:
                 second_numeric = second_numeric % first_numeric
-        correct_answer = first_numeric + second_numeric
+        correct_answer = str(first_numeric + second_numeric)
         if user_answer != correct_answer:
             print(f'{user_answer} is wrong answer ;(. Correct answer was {correct_answer}.')
             print(f"Let's try again, {name}!")
