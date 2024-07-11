@@ -19,7 +19,8 @@ def main():
         else:
             correct_answer = 'no'
         if user_answer.lower() != correct_answer:
-            print(f'"{user_answer}" is wrong answer ;(. Correct answer was "{correct_answer}".')
+            print(f'{user_answer} is wrong answer ;(. '
+                  f'Correct answer was {correct_answer}.')
             print(f"Let's try again, {name}!")
             break
         else:

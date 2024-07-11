@@ -22,7 +22,8 @@ def main():
                 second_numeric = second_numeric % first_numeric
         correct_answer = str(first_numeric + second_numeric)
         if user_answer != correct_answer:
-            print(f'{user_answer} is wrong answer ;(. Correct answer was {correct_answer}.')
+            print(f'{user_answer} is wrong answer ;(. '
+                  f'Correct answer was {correct_answer}.')
             print(f"Let's try again, {name}!")
             break
         else:

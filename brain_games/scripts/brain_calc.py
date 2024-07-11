@@ -25,7 +25,8 @@ def main():
             case '*':
                 correct_answer = str(first_operand * second_operand)
         if user_answer != correct_answer:
-            print(f'{user_answer} is wrong answer ;(. Correct answer was {correct_answer}.')
+            print(f'{user_answer} is wrong answer ;(. '
+                  f'Correct answer was {correct_answer}.')
             print(f"Let's try again, {name}!")
             break
         else:
