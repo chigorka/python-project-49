@@ -1,37 +1,20 @@
-#!/usr/bin/env python3
-
-
-from brain_games.cli import welcome_user
 import random
-import prompt
+from brain_games.constants import TASK_GCD
+from brain_games.engine import run_game
 
 
-def main():
-    name = welcome_user()
-    print('Find the greatest common divisor of given numbers.')
-    number_of_question = 3
-    while number_of_question > 0:
-        first_numeric = random.randint(1, 100)
-        second_numeric = random.randint(1, 100)
-        print(f'Question: {first_numeric} {second_numeric}')
-        user_answer = prompt.string('Your answer: ')
-        while first_numeric != 0 and second_numeric != 0:
-            if first_numeric > second_numeric:
-                first_numeric = first_numeric % second_numeric
-            else:
-                second_numeric = second_numeric % first_numeric
-        correct_answer = str(first_numeric + second_numeric)
-        if user_answer != correct_answer:
-            print(f'{user_answer} is wrong answer ;(. '
-                  f'Correct answer was {correct_answer}.')
-            print(f"Let's try again, {name}!")
-            break
+def gcd_question_and_result():
+    first_number = random.randint(1, 100)
+    second_number = random.randint(1, 100)
+    question = f'{first_number} {second_number}'
+    while first_number != 0 and second_number != 0:
+        if first_number > second_number:
+            first_number = first_number % second_number
         else:
-            print('Correct!')
-        number_of_question -= 1
-    else:
-        print(f'Congratulations, {name}!')
+            second_number = second_number % first_number
+    result = first_number + second_number
+    return question, str(result)
 
 
-if __name__ == '__main__':
-    main()
+def run_gcd_game():
+    run_game(TASK_GCD, gcd_question_and_result)
