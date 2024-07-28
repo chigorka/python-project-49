@@ -1,36 +1,19 @@
-#!/usr/bin/env python3
-
-
-from brain_games.cli import welcome_user
 import random
-import prompt
+from brain_games.constants import TASK_PRIME
+from brain_games.engine import run_game
 
 
-def main():
-    name = welcome_user()
-    print('Answer "yes" if given number is prime. Otherwise answer "no".')
-    number_of_question = 3
-    while number_of_question > 0:
-        numeric = random.randint(1, 100)
-        print(f'Question: {numeric}')
-        for i in range(2, numeric // 2):
-            if numeric % i == 0:
-                correct_answer = 'no'
-                break
-        else:
-            correct_answer = 'yes'
-        user_answer = prompt.string('Your answer: ')
-        if user_answer.lower() != correct_answer:
-            print(f'{user_answer} is wrong answer ;(. '
-                  f'Correct answer was {correct_answer}.')
-            print(f"Let's try again, {name}!")
+def prime_question_and_result():
+    number = random.randint(2, 100)
+    question = f'{number}'
+    for i in range(2, number // 2 + 1):
+        if number % i == 0:
+            result = 'no'
             break
-        else:
-            print('Correct!')
-        number_of_question -= 1
     else:
-        print(f'Congratulations, {name}!')
+        result = 'yes'
+    return question, result
 
 
-if __name__ == '__main__':
-    main()
+def run_prime_game():
+    run_game(TASK_PRIME, prime_question_and_result)
